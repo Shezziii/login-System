@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+{%block title%}iCoder.Login{%endblock%}
+{%block nav%} <nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">iCoder</a>
+  </div>
+</nav>
+{%endblock%}
+{%block br%} {%endblock%}
+
+{%block body%}
+<div class="alert alert-primary alert-dismissible fade show" role="alert"> <strong>Holy guacamole!</strong> You should check in on some of those fields below. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>
+	
+	 {% if error %}  
+
+      	<div   id="error"class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Error!</strong>{{error}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>
+
+    {% endif %}  
+
+
+
+<br><br><br><br>	
+	<div class="card m-auto " style="width: 20rem;"> <div class="card-body"><form class="form" action="/login" method='post' > <div class="mb-3">  <label for="exampleFormControlInput1" class="form-label">Email address</label> <input type="email" class="form-control" id="exampleFormControlInput1" required name="email" oninvalid="error()"> </div> 
+	 <label for="exampleFormControlInput1" class="form-label">Password</label> <input type="password" class="form-control" id="pass" required   minlength="8" oninvalid="error()" name="pass"> <div class="form-check m-2"> <input class="form-check-input" type="checkbox" onclick="var temp1 = document.getElementById('pass');  if (temp1.type === 'password'){  temp1.type = 'text';  } else { temp1.type = 'password'; }" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault"> Show Password </label> </div> </div>
+	
+	 <button type="submits" class="btn btn-outline-primary m-auto">Login</button> </form>
+	 <p class='m-3 ' >Not a member ? <a href="/signup">Create Account.</a></p> </div> </div>{%endblock%}

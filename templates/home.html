@@ -1,0 +1,43 @@
+{% extends "base.html" %} 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<style>
+				 .hello{
+		          font-size:300%;
+            margin-left:40%;
+         
+		          	width: 0ch;
+             overflow:hidden;
+		         		animation: text 4s steps(7) infinite alternate;
+	         			border-right:3px solid  #1577ff;
+	         			line-height: 50px;
+	         		
+}
+@keyframes text{
+0%{ width:0ch ;}
+
+50%{width: 9ch;}
+				
+}
+
+50%{width: 9ch;}
+				
+}
+</style>
+{%block title%}iCoder.Home{%endblock%}
+{%block br%}{%endblock%}
+{% block body %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div  style="dispaly:none;" id="error"class="alert alert-success alert-dismissible fade show" role="alert"> <strong> Hurrah ! </strong>  {{message}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>
+
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<br><br><br><br>
+ 
+<h1 class='text-center'>Welcome {{name[0]}}...</h1><br><br>
+  <div class="card m-auto " style="width: 20rem;"> <img src="{{url_for('uploader')}}" class="card-img-top" alt="sorry , your static directory is not working."> <div class="card-body"><h5 class="card-title">Hello</h5>  <p class="card-text">You are using a web develope by team icoder. </p>  <form class="form" role="search" action='/logout'>  <button class="btn btn-outline-danger" type="submit">Logout</button>    </form> </div> </div>
+  {%endblock%}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

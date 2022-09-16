@@ -1,0 +1,6 @@
+{% extends "base.html" %} 
+{% block body%}
+<div class="card text-center"> <div class="card-header">iCoder Web</div> <div class="card-body"> <h5 class="card-title">Account info...</h5><div class="container">
+<table class="table table-bordered border-primary">
+				 <thead> <tr > <th scope="row" class="table-primary">User_id</th> <td>20130073-{{Data[0]}}</td> </tr><tr > <th scope="row" class="table-primary">User Name</th>  <td>{{Data[1]}}</td> </tr>  </thead> <tbody> <tr> <th scope="row" class="table-primary">Email</th>  <td>{{Data[2]}}</td> </tr> <tr> <th scope="row" class="table-primary">Password</th><td>{{Data[3]}}</td> </tr>  </tbody> </table></div><a href="/delete/{{Data[0]}}" class="btn btn-danger">Delete Account</a> <a href="/edit" class="btn btn-primary">Edit Details</a> </div> <div class="card-footer text-muted"> Shezziii </div> </div>
+{%endblock%}

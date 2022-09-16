@@ -1,0 +1,29 @@
+{% extends "base.html" %} 
+{%block title%}iCoder.contact{%endblock%}
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+ {%block br%}  {%endblock%}
+{% block body%}
+<div class="alert alert-info alert-dismissible fade show" role="alert"> <strong>Hello!</strong> You can Ask your question below. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+    {%if category=="success"%}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">  <strong>Thanks to informing Us !</strong> {{message}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>
+ {%endif%}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<br><br><br>
+
+<form class="form-control" action="/contact" method="POST">
+<div class="mb-3"> <label for="exampleFormControlInput1" class="form-label">Name </label> <input type="text" class="form-control" id="exampleFormControlInput1" name="cname" required> </div> 
+<div class="mb-3"> <label for="exampleFormControlInput1" class="form-label">Phone Number</label> <input type="number" class="form-control" id="exampleFormControlInput1" name="cno" required> </div> 
+<div class="mb-3"> <label for="exampleFormControlInput1" class="form-label">Email address </label> <input type="email" class="form-control" id="exampleFormControlInput1" name="cemail" required> </div> <div class="mb-3"> <label for="exampleFormControlTextarea1" class="form-label">Ask your question Here </label> <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="question" required></textarea> </div>
+<button type="submit" class="btn btn-primary">Send</button>
+</form>
+
+
+{%endblock%}
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
